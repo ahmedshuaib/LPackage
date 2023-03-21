@@ -2,7 +2,9 @@
 
 namespace AhmedShuaib\LPackage\Providers;
 
-use AhmedShuaib\LPackage\Commands\PackageGenerator;
+use AhmedShuaib\LPackage\Console\PackageControllerCommand;
+use AhmedShuaib\LPackage\Console\PackageGenerator;
+use AhmedShuaib\LPackage\Console\PackageModelCommand;
 use Illuminate\Support\ServiceProvider;
 
 class PackageServiceProvider extends ServiceProvider {
@@ -12,6 +14,8 @@ class PackageServiceProvider extends ServiceProvider {
         if($this->app->runningInConsole()) {
             $this->commands([
                 PackageGenerator::class,
+                PackageControllerCommand::class,
+                PackageModelCommand::class
             ]);
         }
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace AhmedShuaib\LPackage\Commands;
+namespace AhmedShuaib\LPackage\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
@@ -23,7 +23,7 @@ class PackageGenerator extends Command
         // Create directories
         File::makeDirectory($path, 0755, true);
         File::makeDirectory("{$path}/src", 0755, true);
-        File::makeDirectory("{$path}/src/Controllers", 0755, true);
+        File::makeDirectory("{$path}/src/Http/Controllers", 0755, true);
         File::makeDirectory("{$path}/src/Models", 0755, true);
         File::makeDirectory("{$path}/src/Providers", 0755, true);
         File::makeDirectory("{$path}/src/Events", 0755, true);
@@ -40,7 +40,7 @@ class PackageGenerator extends Command
         // Create files
         File::put("{$path}/src/Providers/{$packageName}ServiceProvider.php", $this->generateServiceProviderContent($packageName));
 
-        File::put("{$path}/src/Controllers/ExampleController.php", $this->generateControllerContent($packageName));
+        File::put("{$path}/src/Http/Controllers/ExampleController.php", $this->generateControllerContent($packageName));
         File::put("{$path}/src/Models/Example.php", $this->generateModelContent($packageName));
         File::put("{$path}/src/Providers/EventServiceProvider.php", $this->generateEventServiceProviderContent($packageName));
         File::put("{$path}/src/Events/ExampleEvent.php", $this->generateEventContent($packageName));

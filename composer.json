@@ -28,9 +28,9 @@
         }
     },
     "require-dev": {
-        "orchestra/testbench": "^8.0",
         "phpunit/phpunit": "^10.0",
-        "laravel/framework": "^10.4"
+        "laravel/framework": "^10.4",
+        "orchestra/testbench": "^8.0"
     },
     "scripts": {
         "test": "phpunit"
