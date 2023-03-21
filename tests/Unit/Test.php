@@ -28,7 +28,16 @@ class Test extends TestCase {
 
         // Assert that the package files were created
         $this->assertTrue(File::exists($basePath));
+        $this->assertTrue(File::exists("{$basePath}/src/Providers/EventServiceProvider.php"));
         $this->assertTrue(File::exists("{$basePath}/src/Providers/{$packageName}ServiceProvider.php"));
+        $this->assertTrue(File::exists("{$basePath}/src/Models/Example.php"));
+        $this->assertTrue(File::exists("{$basePath}/src/resources/views/welcome.blade.php"));
+        $this->assertTrue(File::exists("{$basePath}/src/routes/web.php"));
+        $this->assertTrue(File::exists("{$basePath}/src/routes/api.php"));
+        $this->assertTrue(File::exists("{$basePath}/src/config/lpackage.php"));
+        $this->assertTrue(File::exists("{$basePath}/src/Controllers/ExampleController.php"));
+        $this->assertTrue(File::exists("{$basePath}/src/Exceptions/ExampleException.php"));
+        $this->assertTrue(File::exists("{$basePath}/src/Middleware/ExampleMiddleware.php"));
         // Add more assertions for other generated files and folders
 
         // Clean up the generated package files

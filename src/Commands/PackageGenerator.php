@@ -38,7 +38,7 @@ class PackageGenerator extends Command
 
 
         // Create files
-        File::put("{$path}/src/{$packageName}ServiceProvider.php", $this->generateServiceProviderContent($packageName));
+        File::put("{$path}/src/Providers/{$packageName}ServiceProvider.php", $this->generateServiceProviderContent($packageName));
 
         File::put("{$path}/src/Controllers/ExampleController.php", $this->generateControllerContent($packageName));
         File::put("{$path}/src/Models/Example.php", $this->generateModelContent($packageName));
@@ -56,6 +56,8 @@ class PackageGenerator extends Command
         File::put("{$path}/.gitignore", "/vendor/\n/.idea/\n");
 
         $this->info("Package '{$packageName}' generated successfully!");
+
+        return true;
     }
 
     private function generateServiceProviderContent(string $packageName)
@@ -116,8 +118,9 @@ class PackageGenerator extends Command
         EOT;
     }
 
+
     private function generateControllerContent($package) {
-        $stub = file_get_contents(base_path('vendor/laravel/framework/src/Illuminate/Foundation/Console/stubs/controller.stub'));
+        $stub = file_get_contents(__DIR__ . ('/../../vendor/laravel/framework/src/Illuminate/Routing/Console/stubs/controller.stub'));
         $stub = str_replace('{{ namespace }}', $package, $stub);
         $stub = str_replace('{{ class }}', $package, $stub);
         $stub = str_replace('use {{ rootNamespace }}Http\Controllers\Controller;', 'use Illuminate\Routing\Controller;', $stub);
@@ -125,41 +128,41 @@ class PackageGenerator extends Command
     }
 
     private function generateModelContent($package) {
-        $stub = file_get_contents(base_path('vendor/laravel/framework/src/Illuminate/Foundation/Console/stubs/model.stub'));
+        $stub = file_get_contents(__DIR__ . ('/../../vendor/laravel/framework/src/Illuminate/Foundation/Console/stubs/model.stub'));
         $stub = str_replace('{{ namespace }}', $package, $stub);
         $stub = str_replace('{{ class }}', $package, $stub);
         return $stub;
     }
 
     private function generateEventServiceProviderContent($package) {
-        $stub = file_get_contents(base_path('vendor/laravel/framework/src/Illuminate/Foundation/Console/stubs/provider.stub'));
+        $stub = file_get_contents(__DIR__ . ('/../../vendor/laravel/framework/src/Illuminate/Foundation/Console/stubs/provider.stub'));
         $stub = str_replace('{{ namespace }}', $package, $stub);
         $stub = str_replace('{{ class }}', $package, $stub);
         return $stub;
     }
 
     private function generateEventContent($package) {
-        $stub = file_get_contents(base_path('vendor/laravel/framework/src/Illuminate/Foundation/Console/stubs/event.stub'));
+        $stub = file_get_contents(__DIR__ . ('/../../vendor/laravel/framework/src/Illuminate/Foundation/Console/stubs/event.stub'));
         $stub = str_replace('{{ namespace }}', $package, $stub);
         $stub = str_replace('{{ class }}', $package, $stub);
         return $stub;
     }
 
     private function generateMiddlewareContent($package) {
-        $stub = file_get_contents(base_path('vendor/laravel/framework/src/Illuminate/Foundation/Console/stubs/middleware.stub'));
+        $stub = file_get_contents(__DIR__ . ('/../../vendor/laravel/framework/src/Illuminate/Routing/Console/stubs/middleware.stub'));
         $stub = str_replace('{{ namespace }}', $package, $stub);
         $stub = str_replace('{{ class }}', $package, $stub);
         return $stub;
     }
 
     private function generateExceptionContent($package) {
-        $stub = file_get_contents(base_path('vendor/laravel/framework/src/Illuminate/Foundation/Console/stubs/exception.stub'));
+        $stub = file_get_contents(__DIR__ . ('/../../vendor/laravel/framework/src/Illuminate/Foundation/Console/stubs/exception.stub'));
         $stub = str_replace('{{ namespace }}', $package, $stub);
         $stub = str_replace('{{ class }}', $package, $stub);
         return $stub;
     }
 
-    private function generateConfigContent($package) {
+    private function generateConfigContent() {
         return <<<EOT
         <?php
 
@@ -169,13 +172,13 @@ class PackageGenerator extends Command
         EOT;
     }
 
-    private function generateMigrationContexnt($package) {
-        $stub = file_get_contents(base_path('vendor/laravel/framework/src/Illuminate/Foundation/Console/stubs/exception.stub'));
+    private function generateMigrationContexnt() {
+        $stub = file_get_contents(__DIR__ . ('/../../vendor/laravel/framework/src/Illuminate/Foundation/Console/stubs/exception.stub'));
         return $stub;
     }
 
-    private function generateViewContent($package) {
-        $stub = file_get_contents(base_path('vendor/laravel/framework/src/Illuminate/Foundation/Console/stubs/app.stub'));
+    private function generateViewContent() {
+        $stub = file_get_contents(__DIR__ . ('/../../vendor/laravel/framework/src/Illuminate/Auth/Console/stubs/make/views/layouts/app.stub'));
         return $stub;
     }
 
