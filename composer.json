@@ -3,7 +3,7 @@
     "description": "A laravel package generator package",
     "type": "library",
     "require": {
-        "illuminate/support": "11.x-dev",
+        "illuminate/support": "*",
         "php": "^8.2"
     },
     "license": "MIT",
