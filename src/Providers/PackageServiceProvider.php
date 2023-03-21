@@ -10,7 +10,7 @@ class PackageServiceProvider extends ServiceProvider {
 
     public function boot() {
         if($this->app->runningInConsole()) {
-            $this->command([
+            $this->app->command([
                 PackageGenerator::class,
             ]);
         }
