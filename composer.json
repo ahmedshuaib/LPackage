@@ -1,0 +1,30 @@
+{
+    "name": "ahmedshuaib/lpackage",
+    "description": "A laravel package generator package",
+    "type": "library",
+    "require": {
+        "illuminate/support": "11.x-dev",
+        "php": "^8.2"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "AhmedShuaib\\LPackage\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ahmedshuaib",
+            "email": "me@ahmedshuaib.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "laravel": {
+            "providers": [
+                "AhmedShuaib\\LPackage\\Providers\\PackageServiceProvider"
+            ]
+        }
+    }
+}
