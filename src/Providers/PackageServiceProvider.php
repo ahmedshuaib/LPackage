@@ -2,7 +2,7 @@
 
 namespace AhmedShuaib\LPackage\Providers;
 
-use AhmedShuaib\LPackage\PackageGenerator;
+use AhmedShuaib\LPackage\Commands\PackageGenerator;
 use Illuminate\Support\ServiceProvider;
 
 class PackageServiceProvider extends ServiceProvider {
