@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\File;
 
 class PackageGenerator extends Command
 {
-    protected $signature = 'package:generate {name}';
+    protected $signature = 'make:package {name}';
     protected $description = 'Generate all necessary files and folders for package development';
 
     public function handle()
@@ -88,7 +88,7 @@ class PackageGenerator extends Command
     {
         return <<<EOT
         {
-            "name": "{$packageName}/lpackage",
+            "name": "vendor_name/{$packageName}",
             "description": "A Laravel package to create a directory with all necessary files for package development.",
             "type": "library",
             "license": "MIT",
@@ -104,13 +104,13 @@ class PackageGenerator extends Command
             },
             "autoload": {
                 "psr-4": {
-                    "{$packageName}\\\\Lpackage\\\\": "src/"
+                    "VendorName\\\\{$packageName}\\\\": "src/"
                 }
             },
             "extra": {
                 "laravel": {
                     "providers": [
-                        "{$packageName}\\\\Lpackage\\\\{$packageName}ServiceProvider"
+                        "VendorName\\\\{$packageName}\\\\Providers\\\\{$packageName}ServiceProvider"
                     ]
                 }
             }

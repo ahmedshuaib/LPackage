@@ -24,7 +24,7 @@ class Test extends TestCase {
         }
 
         // Run the command
-        Artisan::call('package:generate', ['name' => $packageName]);
+        Artisan::call('make:package', ['name' => $packageName]);
 
         // Assert that the package files were created
         $this->assertTrue(File::exists($basePath));
