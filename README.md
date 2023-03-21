@@ -31,7 +31,7 @@ After installation, register the service provider in your `config/app.php` file:
 To generate a new Laravel package, run the following Artisan command:
 
 ```
-php artisan package:generate <Package Name>
+php artisan make:package <Package Name>
 ```
 
 Replace `<Package Name>` with the desired name for your package.
