@@ -26,28 +26,5 @@ class Package {
         return false;
     }
 
-    public static function qualifyClass($name, $rootNamespace, $commandInstance) {
-
-        $name = ltrim($name, '\\/');
-
-        $name = str_replace('/', '\\', $name);
-
-        if (Str::startsWith($name, $rootNamespace)) {
-            return $name;
-        }
-
-        $package = $commandInstance->option('package');
-        
-        if ($package) {
-            return $commandInstance->getDefaultNamespace(trim($rootNamespace, '\\')).'\\'.$name;
-        }
-        
-        return $this->qualifyClass(
-            static::getDefaultNamespace(trim($rootNamespace, '\\')).'\\'.$name,
-            $rootNamespace,
-            $commandInstance
-        );
-
-    }
 
 }

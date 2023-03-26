@@ -40,40 +40,24 @@ class GenericCommandTest extends TestCase
 
     public function testMakeControllerInPackage()
     {
-        $filesystem = new Filesystem();
-
         $basePath = base_path('Blog/src/Http/Controllers');
-        // $filesystem->deleteDirectory($basePath);
-        // $filesystem->makeDirectory($basePath, 0755, true, true);
-
-        $this->artisan('make:controller', [
+        $this->artisan('make:package-controller', [
             'name' => 'TestController',
             '--package' => 'Blog',
         ])->assertExitCode(0);
 
-        $this->assertTrue($filesystem->exists(base_path('Blog/src/Http/Controllers/TestController.php')));
-
-        // $filesystem->deleteDirectory($basePath);
-        // $filesystem->deleteDirectory(base_path("Blog"));
+        $this->assertTrue(File::exists(base_path('Blog/src/Http/Controllers/TestController.php')));
     }
 
     public function testMakeModelInPackage() {
 
-        $filesystem = new Filesystem();
-
         $basePath = base_path('Blog/src/Models');
-        // $filesystem->deleteDirectory($basePath);
-        // $filesystem->makeDirectory($basePath, 0755, true, true);
-
-        $this->artisan('make:model', [
+        $this->artisan('make:package-model', [
             'name' => 'TestModel',
             '--package' => 'Blog',
         ])->assertExitCode(0);
 
-        $this->assertTrue($filesystem->exists(base_path('Blog/src/Models/TestModel.php')));
-
-        // $filesystem->deleteDirectory($basePath);
-        // $filesystem->deleteDirectory(base_path("Blog"));
+        $this->assertTrue(File::exists(base_path('Blog/src/Models/TestModel.php')));
 
     }
 

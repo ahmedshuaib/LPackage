@@ -25,7 +25,7 @@ class PackageMigrationCommand extends Command {
         $package = $this->option('package');
 
         if($package) {
-            $path = "{$package}/src/migrations";
+            $path = "{$package}/src/database/migrations";
         }
 
         $options = [

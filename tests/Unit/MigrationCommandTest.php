@@ -27,7 +27,7 @@ class MigrationCommandTest extends TestCase {
     {
         $packageName = 'Blog';
         $migrationName = 'create_test_table';
-        $path = base_path("{$packageName}/src/migrations");
+        $path = base_path("{$packageName}/src/database/migrations");
 
         // Ensure the migration directory is clean before the test.
         if (File::exists($path)) {
@@ -51,7 +51,7 @@ class MigrationCommandTest extends TestCase {
     {
         // Clean up the migration directory after the test.
         $packageName = 'Blog';
-        $path = base_path("{$packageName}/src/migrations");
+        $path = base_path("{$packageName}/src/database/migrations");
         if (File::exists($path)) {
             File::deleteDirectory($path);
         }

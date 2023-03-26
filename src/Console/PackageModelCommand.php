@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 
 class PackageModelCommand extends ModelMakeCommand {
 
-    protected $name = "make:model";
+    protected $name = "make:package-model";
 
     protected function getDefaultNamespace($rootNamespace)
     {

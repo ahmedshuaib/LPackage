@@ -3,7 +3,6 @@
 namespace AhmedShuaib\LPackage\Console;
 
 use AhmedShuaib\LPackage\Package;
-use Illuminate\Console\GeneratorCommand;
 use Illuminate\Routing\Console\ControllerMakeCommand;
 use Symfony\Component\Console\Input\InputOption;
 use Illuminate\Support\Str;
@@ -11,7 +10,7 @@ use Illuminate\Support\Str;
 class PackageControllerCommand extends ControllerMakeCommand {
 
 
-    protected $name = 'make:controller';
+    protected $name = 'make:package-controller';
 
     protected function getDefaultNamespace($rootNamespace)
     {
