@@ -30,7 +30,8 @@
     "require-dev": {
         "phpunit/phpunit": "^10.0",
         "laravel/framework": "^10.4",
-        "orchestra/testbench": "^8.0"
+        "orchestra/testbench": "^8.0",
+        "illuminate/database": "*"
     },
     "scripts": {
         "test": "phpunit"

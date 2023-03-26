@@ -9,7 +9,7 @@ use Orchestra\Testbench\TestCase;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 
-class PackageControllerCommandTest extends TestCase
+class GenericCommandTest extends TestCase
 {
     protected function getPackageProviders($app)
     {
