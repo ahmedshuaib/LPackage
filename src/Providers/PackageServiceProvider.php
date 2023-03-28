@@ -2,6 +2,7 @@
 
 namespace AhmedShuaib\LPackage\Providers;
 
+use AhmedShuaib\LPackage\Console\InstallPackageCommand;
 use AhmedShuaib\LPackage\Console\PackageControllerCommand;
 use AhmedShuaib\LPackage\Console\PackageGenerator;
 use AhmedShuaib\LPackage\Console\PackageMigrationCommand;
@@ -17,7 +18,8 @@ class PackageServiceProvider extends ServiceProvider {
                 PackageGenerator::class,
                 PackageControllerCommand::class,
                 PackageModelCommand::class,
-                PackageMigrationCommand::class
+                PackageMigrationCommand::class,
+                InstallPackageCommand::class
             ]);
         }
     }
