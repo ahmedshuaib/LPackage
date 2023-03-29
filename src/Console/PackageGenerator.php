@@ -24,10 +24,10 @@ class PackageGenerator extends Command
         File::makeDirectory($path, 0755, true);
         File::makeDirectory("{$path}/src", 0755, true);
         File::makeDirectory("{$path}/src/Http/Controllers", 0755, true);
+        File::makeDirectory("{$path}/src/Http/Middleware", 0755, true);
         File::makeDirectory("{$path}/src/Models", 0755, true);
         File::makeDirectory("{$path}/src/Providers", 0755, true);
         File::makeDirectory("{$path}/src/Events", 0755, true);
-        File::makeDirectory("{$path}/src/Middleware", 0755, true);
         File::makeDirectory("{$path}/src/Exceptions", 0755, true);
         File::makeDirectory("{$path}/src/config", 0755, true);
         File::makeDirectory("{$path}/src/database/migrations", 0755, true);
@@ -41,10 +41,10 @@ class PackageGenerator extends Command
         File::put("{$path}/src/Providers/{$packageName}ServiceProvider.php", $this->generateServiceProviderContent($packageName));
 
         File::put("{$path}/src/Http/Controllers/ExampleController.php", $this->generateControllerContent($packageName));
+        File::put("{$path}/src/Http/Middleware/ExampleMiddleware.php", $this->generateMiddlewareContent($packageName));
         File::put("{$path}/src/Models/Example.php", $this->generateModelContent($packageName));
         File::put("{$path}/src/Providers/EventServiceProvider.php", $this->generateEventServiceProviderContent($packageName));
         File::put("{$path}/src/Events/ExampleEvent.php", $this->generateEventContent($packageName));
-        File::put("{$path}/src/Middleware/ExampleMiddleware.php", $this->generateMiddlewareContent($packageName));
         File::put("{$path}/src/Exceptions/ExampleException.php", $this->generateExceptionContent($packageName));
         File::put("{$path}/src/config/lpackage.php", $this->generateConfigContent());
         File::put("{$path}/src/database/migrations/create_lpackage_table.php", $this->generateMigrationContexnt());
